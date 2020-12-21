@@ -13,7 +13,7 @@ int main()
 	}
 	
 	//unsorted array 2
-	printf("\nenter the size of arrat2 = ");
+	printf("\nenter the size of array2 = ");
 	scanf("%d",&n2);
 	printf("\nenter the elements in array2 =\n");
 	for(j=0;j<n2;j++)
