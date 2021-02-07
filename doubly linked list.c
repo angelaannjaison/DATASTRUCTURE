@@ -17,12 +17,13 @@ void delete_end();
 void delete_atpos();
 void display_forward();
 void display_reverse();
+void search();
 
 void main()
 {
 	int ch;
 	printf("\n**************doubly linked list**************\n");
-	printf("\n1.insert at begining\n2.insert at end\n3.insert at position\n4.delete at begining\n5.delete at end\n6.delete at position\n7.display forward\n8.display reverse\n9.exit\n");
+	printf("\n1.insert at begining\n2.insert at end\n3.insert at position\n4.delete at begining\n5.delete at end\n6.delete at position\n7.display forward\n8.display reverse\n9.search\n10.exit\n");
 	do
 	{
 		printf("\nenter a choice:");
@@ -54,12 +55,15 @@ void main()
 				display_reverse();
 				break;	
 			case 9:
+				search();
+				break;	
+			case 10:
 				printf("\n***************************exit*****************************\n");	
 			default:
 				printf("\n invalid choice,try again");				
 		}
 		
-	}while(ch!=9);
+	}while(ch!=10);
 }
 
 void insert_begin()
@@ -223,3 +227,28 @@ void display_reverse()
 	}
 }
 
+void search()
+{
+	int data;
+	struct node *temp;
+	temp=head;
+	if(head==NULL)
+	printf("\n*************DOUBLY LINKED LIST IS EMPTY***************\n");
+	else
+	{
+    printf("Enter the number you want to search:");
+    scanf("%d", &data);
+    temp=head;
+    printf("\t\t");
+    do
+	{
+      if(temp->data==data)
+	  {
+        printf("\n\t\tThe number is found in the linked list!!");
+        return;
+      }
+      temp=temp->next;
+    }while(temp != NULL);
+    printf("\n\t\tThe number is not found in the linked list!!");
+  }
+  }
