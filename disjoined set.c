@@ -57,7 +57,7 @@ for(j=0;j<countRoot;j++)
 	flag=1;
 	countRoot-=1;
 	tail2=tails[j];
-	for(i=pos;i<countRoot;i++)
+	for(i=pos;i<countRoot;i++)      //deleting rep2 from the heads
 	{
 	heads[i]=heads[i+1];
 
@@ -83,6 +83,24 @@ rep2=rep2->next;
 }
 }
 }
+int search(int x)
+{
+int i;
+struct node *tmp=(struct node *)malloc(sizeof(struct node));
+for(i=0;i<countRoot;i++)
+{
+tmp=heads[i];
+if(heads[i]->data==x)
+return 1;	
+while(tmp!=NULL)
+{
+if(tmp->data==x)
+return 1;
+tmp=tmp->next;
+}
+}
+return 0;
+}
 void main()
 {
 int choice,x,i,j,y,flag=0;
@@ -97,17 +115,9 @@ int choice,x,i,j,y,flag=0;
 		case 1:	
 			printf("Enter new element");
 			scanf("%d",&x);
-			for(i=0;i<countRoot;i++)
-			{
-			flag=0;
-			if(heads[i]->data==x)
-			{
+			if(search(x)==1)
 			printf("Element already present in the disjoint set DS\n");
-			flag=1;
-			break;
-			}
-			}
-			if(flag==0)
+			else
 			makeSet(x);
 			break;
 		case 2:
