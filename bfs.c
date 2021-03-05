@@ -1,5 +1,4 @@
- 
-   #include<stdio.h>
+#include<stdio.h>
 int arr[20][20],queue[20],visited[20],n,i,j,f=0,r=-1;
 
 void bfs(int v)
